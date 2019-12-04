@@ -14,25 +14,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void abrirActivities(View v){
-        Intent i;
-        switch( v.getId()){
-            case R.id.btn_agregar:
-                 i= new Intent(this, ActivityAltas.class);
-                startActivity(i);
-                break;
-            case R.id.btn_eliminar:
-                i = new Intent(this, ActivityBajas.class);
-                startActivity(i);
-                break;
-            case R.id.btn_modificar:
-                i = new Intent(this, ActivityCambios.class);
-                startActivity(i);
-                break;
-            case R.id.btn_buscar:
-                i = new Intent(this, ActivityConsultas.class);
-                startActivity(i);
-                break;
-        }
-    }
+
 }
