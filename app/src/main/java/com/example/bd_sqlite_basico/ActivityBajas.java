@@ -22,9 +22,14 @@ public class ActivityBajas extends Activity {
 
     public void eliminarAlumno(View v){
         final AlumnoDAO aa = new AlumnoDAO(this);
-        aa.eliminarAlumno(txtnumControl.getText().toString());
-        Toast toast = Toast.makeText(ActivityBajas.this, " Se elimino Alumno", Toast.LENGTH_SHORT);
-        toast.show();
+        if(aa.eliminarAlumno(txtnumControl.getText().toString())){
+            Toast toast = Toast.makeText(ActivityBajas.this, " Se elimino Alumno", Toast.LENGTH_SHORT);
+            toast.show();
+        }else{
+            Toast toast = Toast.makeText(ActivityBajas.this, " No se pudo eliminar ese usuario", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
     }
 
 }

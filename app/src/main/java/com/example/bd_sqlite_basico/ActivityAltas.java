@@ -32,11 +32,11 @@ public class ActivityAltas extends Activity {
 
         if((txtnumControl.getText().toString().trim().equals("")  )||
                 (txtNombre.getText().toString().trim().equals("")) ||
-                (txtPrimerAp.toString().trim().equals("")) ||
-                (txtSegundoAp.toString().trim().equals("")) ||
-                (txtEdad.toString().trim().equals("")) ||
-                (txtSemestre.toString().trim().equals("")) ||
-                (txtCarrera.toString().trim().equals(""))){
+                (txtPrimerAp.getText().toString().trim().equals("")) ||
+                (txtSegundoAp.getText().toString().trim().equals("")) ||
+                (txtEdad.getText().toString().trim().equals("")) ||
+                (txtSemestre.getText().toString().trim().equals("")) ||
+                (txtCarrera.getText().toString().trim().equals(""))){
             Toast toast = Toast.makeText(ActivityAltas.this, "No deje espacios vacios", Toast.LENGTH_SHORT);
             toast.show();
         }else {
@@ -79,4 +79,15 @@ public class ActivityAltas extends Activity {
 
         return resultado;
     }
-}
+
+    public void limpiar(View v){
+        txtnumControl.setText("");
+        txtNombre.setText("");
+        txtPrimerAp.setText("");
+        txtSegundoAp.setText("");
+        txtEdad.setText("");
+        txtSemestre.setText("");
+        txtCarrera.setText("");
+    }
+
+    }

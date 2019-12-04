@@ -71,4 +71,11 @@
         android:layout_height="wrap_content"
         android:onClick="Onclick"
         android:text="@string/txt_brn_altas" />
+
+    <Button
+        android:id="@+id/limpiar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="limpiar"
+        android:text="@string/limpiar" />
 </LinearLayout>
