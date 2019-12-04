@@ -35,6 +35,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREACION_TABLA_USUARIO);
+        db.execSQL(AlumnoDAO.CREACION_TABLA_ALUMNOS);
 
 
     }

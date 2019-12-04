@@ -44,7 +44,7 @@ public class AlumnoDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(CREACION_TABLA_ALUMNOS);
+
     }
 
     @Override

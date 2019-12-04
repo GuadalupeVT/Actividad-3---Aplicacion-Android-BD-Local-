@@ -29,19 +29,54 @@ public class ActivityAltas extends Activity {
     }
 
     public void Onclick(View v){
-        final AlumnoDAO aa = new AlumnoDAO(this);
 
-        Alumno a = new Alumno();
-        a.setNumControl(txtnumControl.getText().toString());
-        a.setNombre(txtNombre.getText().toString());
-        a.setPrimerAp(txtPrimerAp.getText().toString());
-        a.setSegundoAp(txtSegundoAp.getText().toString());
-        a.setEdad((Byte.valueOf(txtEdad.getText().toString())) );
-        a.setSemestre(Byte.valueOf(txtSemestre.getText().toString()));
-        a.setCarrera(txtCarrera.getText().toString());
-        aa.agregarAlumno(a);
-        Toast toast = Toast.makeText(ActivityAltas.this, aa.agregarAlumno(a)+" Se agrego Alumno", Toast.LENGTH_SHORT);
-        toast.show();
+        if((txtnumControl.getText().toString().trim().equals("")  )||
+                (txtNombre.getText().toString().trim().equals("")) ||
+                (txtPrimerAp.toString().trim().equals("")) ||
+                (txtSegundoAp.toString().trim().equals("")) ||
+                (txtEdad.toString().trim().equals("")) ||
+                (txtSemestre.toString().trim().equals("")) ||
+                (txtCarrera.toString().trim().equals(""))){
+            Toast toast = Toast.makeText(ActivityAltas.this, "No deje espacios vacios", Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+            if((isNumeric(txtEdad.getText().toString())) || isNumeric(txtSemestre.getText().toString())){
+                final AlumnoDAO aa = new AlumnoDAO(this);
 
+                Alumno a = new Alumno();
+                a.setNumControl(txtnumControl.getText().toString());
+                a.setNombre(txtNombre.getText().toString());
+                a.setPrimerAp(txtPrimerAp.getText().toString());
+                a.setSegundoAp(txtSegundoAp.getText().toString());
+                a.setEdad((Byte.valueOf(txtEdad.getText().toString())));
+                a.setSemestre(Byte.valueOf(txtSemestre.getText().toString()));
+                a.setCarrera(txtCarrera.getText().toString());
+                if (aa.agregarAlumno(a)) {
+                    Toast toast = Toast.makeText(ActivityAltas.this, " Se agrego Alumno", Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(ActivityAltas.this, " No se pudo agregar Alumno", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }else{
+                Toast toast = Toast.makeText(ActivityAltas.this, " La edad y el semestre tiene que ser numerico", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+        }
+    }
+
+    public static boolean isNumeric(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
     }
 }
