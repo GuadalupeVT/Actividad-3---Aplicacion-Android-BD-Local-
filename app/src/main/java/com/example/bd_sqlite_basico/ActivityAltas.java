@@ -40,7 +40,7 @@ public class ActivityAltas extends Activity {
             Toast toast = Toast.makeText(ActivityAltas.this, "No deje espacios vacios", Toast.LENGTH_SHORT);
             toast.show();
         }else {
-            if((isNumeric(txtEdad.getText().toString())) || isNumeric(txtSemestre.getText().toString())){
+            if((isNumeric(txtEdad.getText().toString())) && isNumeric(txtSemestre.getText().toString())){
                 final AlumnoDAO aa = new AlumnoDAO(this);
 
                 Alumno a = new Alumno();

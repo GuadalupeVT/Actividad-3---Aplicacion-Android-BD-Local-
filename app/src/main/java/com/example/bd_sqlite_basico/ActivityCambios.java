@@ -47,16 +47,59 @@ public class ActivityCambios extends Activity {
         }
     }
 
-    public void modificar(View v){
-        final AlumnoDAO aa = new AlumnoDAO(this);
-        boolean res=aa.modificarAlumno(txtnumControl.getText().toString(),txtNombre.getText().toString(),
-                txtPrimerAp.getText().toString(),txtSegundoAp.getText().toString(),
-                (byte)Integer.parseInt(txtEdad.getText().toString()),
-                (byte)Integer.parseInt(txtSemestre.getText().toString()),
-                txtCarrera.getText().toString());
-        if(res){
-            Toast toast = Toast.makeText(ActivityCambios.this, "Se actualizo Alumno", Toast.LENGTH_SHORT);
+    public void modificar(View v) {
+        if ((txtnumControl.getText().toString().trim().equals("")) ||
+                (txtNombre.getText().toString().trim().equals("")) ||
+                (txtPrimerAp.getText().toString().trim().equals("")) ||
+                (txtSegundoAp.getText().toString().trim().equals("")) ||
+                (txtEdad.getText().toString().trim().equals("")) ||
+                (txtSemestre.getText().toString().trim().equals("")) ||
+                (txtCarrera.getText().toString().trim().equals(""))) {
+            Toast toast = Toast.makeText(ActivityCambios.this, "No deje espacios vacios", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            if ((isNumeric(txtEdad.getText().toString())) && isNumeric(txtSemestre.getText().toString())) {
+
+                final AlumnoDAO aa = new AlumnoDAO(this);
+                boolean res = aa.modificarAlumno(txtnumControl.getText().toString(), txtNombre.getText().toString(),
+                        txtPrimerAp.getText().toString(), txtSegundoAp.getText().toString(),
+                        (byte) Integer.parseInt(txtEdad.getText().toString()),
+                        (byte) Integer.parseInt(txtSemestre.getText().toString()),
+                        txtCarrera.getText().toString());
+                if (res) {
+                    Toast toast = Toast.makeText(ActivityCambios.this, "Se actualizo Alumno", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Toast toast = Toast.makeText(ActivityCambios.this, "No se pudo actualizar Alumno", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+             }else{
+            Toast toast = Toast.makeText(ActivityCambios.this, " La edad y el semestre tiene que ser numerico", Toast.LENGTH_SHORT);
             toast.show();
         }
+        }
+    }
+    public static boolean isNumeric(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
+
+    public void limpiarC(View v){
+        txtnumControl.setText("");
+        txtNombre.setText("");
+        txtPrimerAp.setText("");
+        txtSegundoAp.setText("");
+        txtEdad.setText("");
+        txtSemestre.setText("");
+        txtCarrera.setText("");
     }
 }
