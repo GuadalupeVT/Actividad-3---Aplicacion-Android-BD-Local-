@@ -20,7 +20,7 @@ public class UsuarioDAO extends SQLiteOpenHelper {
 
     private static final String TABLA_USUARIO = "Usuario";
 
-    private static final String CAMPO_USUARIO = "Usuaeio";
+    private static final String CAMPO_USUARIO = "Usuario";
     private static final String CAMPO_CONTRASEÑA = "Contraseña";
 
 
@@ -34,13 +34,15 @@ public class UsuarioDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(CREACION_TABLA_USUARIO);
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //para actualizaar ESQUEMA de la BD
+
     }
 
     //---------------------------- METODOS para ABCC ------------------------------
@@ -59,9 +61,26 @@ public class UsuarioDAO extends SQLiteOpenHelper {
 
 
     public Usuario obtenerUsuario(String user, String contraseña){
-       Usuario usuario;
+            Usuario usuario;
+            SQLiteDatabase db= this.getWritableDatabase();
+            String sql="SELECT * FROM "+TABLA_USUARIO+ " WHERE "+CAMPO_USUARIO+"= '"+user+"' AND "+CAMPO_CONTRASEÑA+"='"+contraseña+"';";
+
+            Cursor cursor = db.rawQuery(sql,null);
+            if(cursor.moveToFirst()){
+                usuario= new Usuario(
+                        cursor.getString(0),
+                        cursor.getString(1));
+                return usuario;
+            }else{
+                return  null;
+            }
+    }
+
+
+    public Usuario obtenerUsuarioRepetido(String user){
+        Usuario usuario;
         SQLiteDatabase db= this.getWritableDatabase();
-        String sql="SELECT * FROM "+TABLA_USUARIO+ " WHERE "+CAMPO_USUARIO+"= '"+user+"' AND "+CAMPO_CONTRASEÑA+"='"+contraseña+"';";
+        String sql="SELECT * FROM "+TABLA_USUARIO+ " WHERE "+CAMPO_USUARIO+"= '"+user+"';";
 
         Cursor cursor = db.rawQuery(sql,null);
         if(cursor.moveToFirst()){
@@ -73,7 +92,6 @@ public class UsuarioDAO extends SQLiteOpenHelper {
             return  null;
         }
     }
-
 
 
 

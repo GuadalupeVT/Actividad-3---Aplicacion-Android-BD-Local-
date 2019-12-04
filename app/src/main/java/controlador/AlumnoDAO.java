@@ -33,7 +33,7 @@ public class AlumnoDAO extends SQLiteOpenHelper {
 
     //CREATE TABLE Alumnos(Num_Control TEXT
 
-    private static final String CREACION_TABLA_ALUMNOS = "CREATE TABLE "+ TABLA_ALUMNOS+"("+CAMPO_NUM_CONTROL+" TEXT, "+CAMPO_NOMBRE+" TEXT, "+
+    public static final String CREACION_TABLA_ALUMNOS = "CREATE TABLE "+ TABLA_ALUMNOS+"("+CAMPO_NUM_CONTROL+" TEXT, "+CAMPO_NOMBRE+" TEXT, "+
             CAMPO_PRIMER_AP+" TEXT, "+CAMPO_SEGUNDO_AP+" TEXT, "+CAMPO_EDAD+" INTEGER, "+CAMPO_SEMESTRE+" INTEGER, "+CAMPO_CARRERA+" TEXT);";
 
 
