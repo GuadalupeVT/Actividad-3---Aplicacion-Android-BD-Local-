@@ -15,4 +15,10 @@
     <string name="edad">Edad</string>
     <string name="carrera">Carrera</string>
     <string name="semestre">Semestre</string>
+    <string name="registro">REGISTRARSE</string>
+    <string name="iniciar">INICIAR SESION</string>
+    <string name="Usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="continuar">CONTINUAR</string>
+    <string name="registrar_usuario">REGISTRAR USUARIO</string>
 </resources>

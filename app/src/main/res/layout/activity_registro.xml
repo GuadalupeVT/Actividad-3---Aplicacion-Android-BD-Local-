@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/agregar_usuario"
+        android:layout_width="339dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:hint="@string/Usuario"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/agregar_contraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/agregar_contraseña"
+        android:layout_width="345dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="54dp"
+        android:ems="10"
+        android:hint="@string/contraseña"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agregar_usuario" />
+
+    <Button
+        android:id="@+id/btn_continuar"
+        android:layout_width="220dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="210dp"
+        android:text="@string/continuar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agregar_contraseña" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="139dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="39dp"
+        android:text="@string/registrar_usuario"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/agregar_usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
