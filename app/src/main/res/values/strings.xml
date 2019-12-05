@@ -22,4 +22,12 @@
     <string name="continuar">CONTINUAR</string>
     <string name="registrar_usuario">REGISTRAR USUARIO</string>
     <string name="limpiar">Limpiar</string>
+    <string name="busqueda">Ingresa dato a buscar</string>
+
+    <string-array name="parametro">
+        <item>Numero de control</item>
+        <item>Nombre</item>
+        <item>Primer apellido</item>
+    </string-array>
+
 </resources>

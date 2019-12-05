@@ -1,11 +1,13 @@
 package com.example.bd_sqlite_basico;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,14 +37,24 @@ public class ActivityConsultas extends Activity {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter
-        String nombres[]={"Luke Skywalker","Leia Organa","Anakin Skywalker"};
+        //String nombres[]={"Luke Skywalker","Leia Organa","Anakin Skywalker"};
 
-        ArrayList listaAlumnos= new ArrayList();
-        listaAlumnos.add(new Alumno("1","1,","1","1",(byte)1,(byte)1,"1"));
-        listaAlumnos.add(new Alumno("2","2,","2","2",(byte)2,(byte)2,"2"));
+        ArrayList listaAlumnos= null;
+        Bundle datos = this.getIntent().getExtras();
+        String filtro = datos.getString("filtro");
+        String dato=datos.getString("dato");
+        listaAlumnos=new AlumnoDAO(this).obtenerTodosLosAlumnos(filtro,dato);
 
-        mAdapter = new MyAdapter(new AlumnoDAO(this).obtenerTodosLosAlumnos(""));
-        recyclerView.setAdapter(mAdapter);
+        if(listaAlumnos==null){
+           Intent i= new Intent(this, ActivityConsultasOpciones.class);
+            startActivity(i);
+            Toast toast = Toast.makeText(ActivityConsultas.this, "No existen alumnos con esos parametros", Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+
+            mAdapter = new MyAdapter(listaAlumnos);
+            recyclerView.setAdapter(mAdapter);
+        }
     }
 }
 

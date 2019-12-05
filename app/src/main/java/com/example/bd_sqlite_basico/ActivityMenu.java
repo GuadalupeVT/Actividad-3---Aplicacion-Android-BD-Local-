@@ -31,7 +31,7 @@ public class ActivityMenu extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.btn_buscar:
-                i = new Intent(this, ActivityConsultas.class);
+                i = new Intent(this, ActivityConsultasOpciones.class);
                 startActivity(i);
                 break;
         }

@@ -115,14 +115,14 @@ public class AlumnoDAO extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Alumno>obtenerTodosLosAlumnos(String filtro){
+    public ArrayList<Alumno>obtenerTodosLosAlumnos(String filtro,String campo){
         ArrayList<Alumno> listaAlumnos = new ArrayList<>();
         SQLiteDatabase db= this.getWritableDatabase();
-        String sql="SELECT * FROM "+TABLA_ALUMNOS;
+        String sql="SELECT * FROM "+TABLA_ALUMNOS+ " WHERE "+filtro+"= '"+campo+"'";
 
         Cursor cursor = db.rawQuery(sql,null);
-        if(cursor.moveToFirst()){
-            do{
+        if(cursor.moveToNext()){
+
                 listaAlumnos.add(new Alumno(
                                 cursor.getString(0),
                                 cursor.getString(1),
@@ -131,7 +131,7 @@ public class AlumnoDAO extends SQLiteOpenHelper {
                                 (byte)cursor.getInt(4),
                                 (byte)cursor.getInt(5),
                                 cursor.getString(6)));
-            }while (cursor.moveToNext());
+
             return listaAlumnos;
         }else{
             return  null;

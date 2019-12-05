@@ -68,8 +68,14 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno [numControl=" + numControl + ", nombre=" + nombre + ", primerAp=" + primerAp + ", segundoAp="
-                + segundoAp + ", edad=" + edad +", semestre=" + semestre + ", carrera=" + carrera + "]";
+        return "NumControl=" + numControl +
+                "\n Nombre=" + nombre +
+                "\n  PrimerAp=" + primerAp +
+                "\n  SegundoAp=" + segundoAp +
+                "\n  edad=" + edad +
+                "\n  semestre=" + semestre +
+                "\n  carrera=" + carrera + "\n "
+                +"-------------------------------------";
     }
 
 

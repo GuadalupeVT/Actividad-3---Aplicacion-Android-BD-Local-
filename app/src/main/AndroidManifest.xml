@@ -22,6 +22,7 @@
         <activity android:name=".ActivityConsultas"></activity>
         <activity android:name=".ActivityMenu"></activity>
         <activity android:name=".ActivityRegistro"></activity>
+        <activity android:name=".ActivityConsultasOpciones"></activity>
     </application>
 
 </manifest>
