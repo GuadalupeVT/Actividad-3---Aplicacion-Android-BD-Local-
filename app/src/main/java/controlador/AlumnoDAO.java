@@ -121,7 +121,7 @@ public class AlumnoDAO extends SQLiteOpenHelper {
         String sql="SELECT * FROM "+TABLA_ALUMNOS+ " WHERE "+filtro+"= '"+campo+"'";
 
         Cursor cursor = db.rawQuery(sql,null);
-        if(cursor.moveToNext()){
+        while(cursor.moveToNext()){
 
                 listaAlumnos.add(new Alumno(
                                 cursor.getString(0),
@@ -132,9 +132,8 @@ public class AlumnoDAO extends SQLiteOpenHelper {
                                 (byte)cursor.getInt(5),
                                 cursor.getString(6)));
 
-            return listaAlumnos;
-        }else{
-            return  null;
+
         }
+        return listaAlumnos;
     }
 }
